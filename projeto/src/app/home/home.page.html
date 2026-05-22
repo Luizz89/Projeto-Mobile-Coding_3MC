@@ -1,19 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Drinks
-    </ion-title>
+    <ion-title>Drinks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <h2>Bem-vindo ao Drinks App!</h2>
+
   <p>Este app permite que você busque receitas de drinks de todo o mundo.</p>
   <p>Na próxima tela, digite o nome de um drink para ver sua receita.</p>
+  <p>{{ nomeDrink | uppercase }}</p>
+  <p>{{ teor | teorAlcoolico }}</p>
+  <p>{{ preco | currency:'BRL' }}</p>
 
   <ion-button expand="block" routerLink="/detalhes">
     Buscar Drinks
   </ion-button>
-
 </ion-content>
