@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detalhes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Drink</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- @if: exibe spinner enquanto carrega -->
+  @if (carregando) {
+    <div style="display:flex; flex-direction:column; align-items:center; margin-top:3rem; gap:1rem;">
+      <ion-spinner name="bubbles" color="primary"></ion-spinner>
+      <ion-text color="medium">Carregando drink...</ion-text>
+    </div>
+  }
+
+  <!-- @if: exibe erro se falhar -->
+  @if (erro) {
+    <div style="text-align:center; margin-top:3rem;">
+      <ion-text color="danger">
+        <h2> Drink não encontrado</h2>
+        <p>Verifique o ID ou tente novamente.</p>
+      </ion-text>
+    </div>
+  }
+
+  <!-- @if: exibe conteúdo só quando tudo estiver pronto -->
+  @if (drink && !carregando && !erro) {
+
+    <!-- Imagem + Nome | appRevealOnScroll sem delay -->
+    <ion-card appRevealOnScroll>
+      <ion-img [src]="drink.strDrinkThumb" [alt]="drink.strDrink"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ drink.strDrink }}</ion-card-title>
+
+        <!-- @if: alcoólico ou não -->
+        @if (drink.strAlcoholic === 'Alcoholic') {
+          <ion-badge color="warning"> Alcoólico</ion-badge>
+        } @else {
+          <ion-badge color="success"> Sem álcool</ion-badge>
+        }
+
+        <p style="margin-top:6px; color:gray;">
+          {{ drink.strCategory }} · Copo: {{ drink.strGlass }}
+        </p>
+      </ion-card-header>
+    </ion-card>
+
+    <!-- Ingredientes | delay 0.1s -->
+    <ion-card [appRevealOnScroll]="'0.1s'">
+      <ion-card-content>
+        <h3> Ingredientes</h3>
+        <ion-list lines="full">
+
+          <!-- @for: renderiza cada ingrediente -->
+          @for (ingrediente of ingredientes; track ingrediente.nome) {
+            <ion-item>
+              <ion-label>
+                <strong>{{ ingrediente.nome }}</strong>
+                <p>{{ ingrediente.medida }}</p>
+              </ion-label>
+            </ion-item>
+          } @empty {
+            <ion-item>
+              <ion-label color="medium">Sem ingredientes cadastrados.</ion-label>
+            </ion-item>
+          }
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Modo de preparo | delay 0.2s -->
+    <ion-card [appRevealOnScroll]="'0.2s'">
+      <ion-card-content>
+        <h3> Modo de Preparo</h3>
+        <p style="line-height:1.7; margin-top:8px;">{{ drink.strInstructions }}</p>
+      </ion-card-content>
+    </ion-card>
+
+  }
+
+</ion-content>

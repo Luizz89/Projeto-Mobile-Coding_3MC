@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DrinkService {
+  buscarPorId(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/lookup.php?i=${id}`);
+  }
   private apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1';
 
   constructor(private http: HttpClient) {}
