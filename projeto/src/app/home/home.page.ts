@@ -1,12 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonGrid, IonRow, IonCol, IonCard, IonIcon } from '@ionic/angular/standalone';
+import { UpperCasePipe, CurrencyPipe } from '@angular/common';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton
+} from '@ionic/angular/standalone';
+import { TeorAlcoolicoPipe } from '../teor-alcoolico-pipe';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonIcon, IonCard, IonCol, IonRow, IonGrid, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink, IonButton],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    RouterLink,
+    IonButton,
+    TeorAlcoolicoPipe,
+    UpperCasePipe,
+    CurrencyPipe
+  ]
 })
 export class HomePage {
   nomeDrink = 'caipirinha';
