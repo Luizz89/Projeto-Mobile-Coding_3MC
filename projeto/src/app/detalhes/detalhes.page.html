@@ -1,11 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      
-    </ion-title>
+    <ion-title>Buscar Drinks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-searchbar
+    placeholder="Digite o nome do drink..."
+    [(ngModel)]="termoBusca"
+    (keyup.enter)="buscar()">
+  </ion-searchbar>
+
+  <ion-button expand="block" (click)="buscar()">Buscar</ion-button>
+
+  <p *ngIf="mensagem">{{ mensagem }}</p>
+
+  <ion-list>
+    <ion-item *ngFor="let drink of drinks">
+      <ion-img slot="start" [src]="drink.strDrinkThumb" style="width: 60px; height: 60px; border-radius: 8px;"></ion-img>
+      <ion-label>{{ drink.strDrink }}</ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
