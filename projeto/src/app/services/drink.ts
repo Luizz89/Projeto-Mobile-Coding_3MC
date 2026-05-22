@@ -13,4 +13,8 @@ export class DrinkService {
   buscarPorNome(nome: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/search.php?s=${nome}`);
   }
+  buscarPorIngrediente(ingrediente: string): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/filter.php?i=${ingrediente}`);
+}
+
 }

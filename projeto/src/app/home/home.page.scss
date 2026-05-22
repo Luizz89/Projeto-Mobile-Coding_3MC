@@ -25,3 +25,25 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(108, 52, 131, 0.4);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  ion-card-header {
+    background: linear-gradient(135deg, #6c3483, #1a0a2e);
+    padding: 16px;
+  }
+
+  ion-card-title {
+    color: #f39c12;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
