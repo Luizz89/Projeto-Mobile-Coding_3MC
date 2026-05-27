@@ -1,0 +1,110 @@
+// ============================================================
+//  DRINKS APP — variables.scss
+//  Tema: Dark Neon Purple + Golden Amber
+// ============================================================
+
+// Google Fonts — Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+// ------------------------------------------------------------
+//  Paleta principal — Purple
+// ------------------------------------------------------------
+:root {
+  --ion-color-primary:         #9b59b6;
+  --ion-color-primary-rgb:     155, 89, 182;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade:   #7d3f99;
+  --ion-color-primary-tint:    #b07cc6;
+
+  // Secondary — Golden Amber
+  --ion-color-secondary:         #f39c12;
+  --ion-color-secondary-rgb:     243, 156, 18;
+  --ion-color-secondary-contrast: #1a0a2e;
+  --ion-color-secondary-shade:   #d4880f;
+  --ion-color-secondary-tint:    #f5ad3e;
+
+  // Tertiary — Neon Pink accent
+  --ion-color-tertiary:         #e056a0;
+  --ion-color-tertiary-rgb:     224, 86, 160;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-shade:   #c4448a;
+  --ion-color-tertiary-tint:    #e870b3;
+
+  // Success / Warning / Danger / Dark / Medium / Light
+  --ion-color-success:         #2ecc71;
+  --ion-color-success-shade:   #27ae60;
+  --ion-color-success-tint:    #54d98c;
+
+  --ion-color-warning:         #f1c40f;
+  --ion-color-warning-shade:   #d4ac0d;
+  --ion-color-warning-tint:    #f4cf3f;
+
+  --ion-color-danger:          #e74c3c;
+  --ion-color-danger-shade:    #c0392b;
+  --ion-color-danger-tint:     #ec6f63;
+
+  --ion-color-dark:            #1a0a2e;
+  --ion-color-dark-shade:      #120720;
+  --ion-color-dark-tint:       #2d1b4e;
+
+  --ion-color-medium:          #7f6f99;
+  --ion-color-medium-shade:    #6b5c82;
+  --ion-color-medium-tint:     #9982b3;
+
+  --ion-color-light:           #f0e6ff;
+  --ion-color-light-shade:     #d9c9f5;
+  --ion-color-light-tint:      #f7f0ff;
+
+  // ------------------------------------------------------------
+  //  Layout & Background
+  // ------------------------------------------------------------
+  --ion-background-color:         #1a0a2e;
+  --ion-background-color-rgb:     26, 10, 46;
+
+  --ion-text-color:               #f0e6ff;
+  --ion-text-color-rgb:           240, 230, 255;
+
+  --ion-card-background:          #2d1b4e;
+
+  --ion-toolbar-background:       #0f0520;
+  --ion-toolbar-color:            #f0e6ff;
+
+  --ion-tab-bar-background:       #0f0520;
+  --ion-tab-bar-color:            #7f6f99;
+  --ion-tab-bar-color-selected:   #f39c12;
+
+  --ion-item-background:          #2d1b4e;
+  --ion-item-color:               #f0e6ff;
+
+  --ion-border-color:             rgba(155, 89, 182, 0.3);
+
+  --ion-font-family: 'Poppins', sans-serif;
+
+  // ------------------------------------------------------------
+  //  Custom design tokens
+  // ------------------------------------------------------------
+  --drinks-gradient-primary:  linear-gradient(135deg, #6c3483 0%, #1a0a2e 100%);
+  --drinks-gradient-card:     linear-gradient(160deg, #3b1f60 0%, #1a0a2e 100%);
+  --drinks-gradient-button:   linear-gradient(90deg, #9b59b6 0%, #e056a0 100%);
+  --drinks-gradient-gold:     linear-gradient(90deg, #f39c12 0%, #f1c40f 100%);
+  --drinks-glow-purple:       0 0 20px rgba(155, 89, 182, 0.5);
+  --drinks-glow-gold:         0 0 16px rgba(243, 156, 18, 0.45);
+  --drinks-radius-card:       20px;
+  --drinks-radius-button:     14px;
+  --drinks-radius-input:      12px;
+  --drinks-transition:        all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// ------------------------------------------------------------
+//  Dark mode override (reforça quando o sistema está em dark)
+// ------------------------------------------------------------
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-background-color:   #1a0a2e;
+    --ion-text-color:         #f0e6ff;
+    --ion-card-background:    #2d1b4e;
+    --ion-item-background:    #2d1b4e;
+    --ion-toolbar-background: #0f0520;
+    --ion-tab-bar-background: #0f0520;
+  }
+}

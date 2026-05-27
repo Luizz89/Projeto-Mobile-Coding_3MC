@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="voltarHome()">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Buscar Drinks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-searchbar
+    placeholder="Nome do drink ou #ingrediente..."
+    [(ngModel)]="termoBusca"
+    (keyup.enter)="buscar()">
+  </ion-searchbar>
+
+  <ion-button expand="block" (click)="buscar()">Buscar</ion-button>
+
+  <!-- @if substitui o *ngIf -->
+  @if (mensagem) {
+    <p class="mensagem">{{ mensagem }}</p>
+  }
+
+  <div class="drinks-grid">
+
+    <!-- @for substitui o *ngFor -->
+    @for (drink of drinks; track drink.idDrink) {
+      <div class="drink-card" (click)="verDetalhes(drink.idDrink)">
+        <div class="avatar-ring">
+          <img [src]="drink.strDrinkThumb" [alt]="drink.strDrink" />
+        </div>
+        <div class="card-info">
+          <span class="card-nome">{{ drink.strDrink }}</span>
+        </div>
+      </div>
+    } @empty {
+      @if (!mensagem) {
+        <p style="text-align:center; color: gray;">Nenhum drink para exibir.</p>
+      }
+    }
+
+  </div>
+
+</ion-content>
