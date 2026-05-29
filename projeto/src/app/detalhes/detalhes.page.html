@@ -19,17 +19,15 @@
 
   <ion-button expand="block" (click)="buscar()">Buscar</ion-button>
 
-  <!-- @if substitui o *ngIf -->
   @if (mensagem) {
     <p class="mensagem">{{ mensagem }}</p>
   }
 
   <div class="drinks-grid">
 
-    <!-- @for substitui o *ngFor -->
     @for (drink of drinks; track drink.idDrink) {
       <div class="drink-card" (click)="verDetalhes(drink.idDrink)">
-        <div class="avatar-ring">
+        <div class="avatar-ring" appGoldenToast>
           <img [src]="drink.strDrinkThumb" [alt]="drink.strDrink" />
         </div>
         <div class="card-info">
